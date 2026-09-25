@@ -33,6 +33,7 @@
   .hero{background:linear-gradient(135deg, var(--blue) 0%, #123A63 100%);color:var(--white);padding:100px 0;text-align:center;}
   .hero h1{font-size:2.8rem;margin-bottom:15px;}
   .hero p{font-size:1.2rem;margin-bottom:30px;opacity:0.9;}
+  .hero-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;}
  
   /* Sections */
   section{padding:80px 0;}
@@ -67,10 +68,17 @@
   }
   /* Mobile fix for hero buttons */
   @media(max-width:600px){
-    .hero.btn,.hero.btn-outline{
-      padding: 12px 18px;
-      font-size: 0.9rem;
-      white-space: nowrap;/* prevents "Get a free" wrapping */
+    .hero-buttons{
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+    }
+    .hero .btn,.hero .btn-outline{
+      padding: 12px 24px;
+      font-size: 0.95rem;
+      width: 80%;
+      max-width: 260px;
+      text-align:center;
     }
   }
 </style>
@@ -95,8 +103,10 @@
   <div class="container">
     <h1>Building Malawi’s Digital Future</h1>
     <p>Websites, Web Apps, E-commerce & Digital Solutions for Businesses</p>
-    <a href="#quote" class="btn">Get a Free Quote</a>
-    <a href="#services" class="btn btn-outline" style="margin-left:10px;">Our Services</a>
+    <div class="hero-buttons">
+      <a href="#quote" class="btn">Get a Free Quote</a>
+      <a href="#services" class="btn btn-outline">Our Services</a>
+    </div>
   </div>
 </section>
 <!-- SERVICES -->
@@ -125,7 +135,13 @@
     <h2 class="section-title">Request a Quote</h2>
     <p style="text-align:center;margin-bottom:20px;">We reply within 24 hours</p>
     <div class="form-wrapper">
-      <form action="blessingshara010@gmail.com" method="POST"> <!-- Replace with your email service -->
+      <!-- Form fixed: now uses FormSubmit (free) so messages go to your email -->
+      <form action="https://formsubmit.co/blessingshara010@gmail.com" method="POST">
+        <!-- These hidden fields help FormSubmit work better -->
+        <input type="hidden" name="_subject" value="New Quote Request - TechVision Malawi">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        
         <div class="form-group">
           <label>Name</label>
           <input type="text" name="name" required>
@@ -191,6 +207,6 @@
   </div>
 </footer>
 <!-- WhatsApp Button -->
-<a href="https://wa.me/+265991806838" class="whatsapp" target="_blank">💬</a>
+<a href="https://wa.me/265991806838" class="whatsapp" target="_blank">💬</a>
 </body>
 </html>
